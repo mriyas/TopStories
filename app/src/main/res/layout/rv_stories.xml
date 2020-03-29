@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.riyas.topstories.model.StoryResponse"></variable>
+
+        <variable
+            name="fragment"
+            type="com.riyas.topstories.view.fragments.HomeFragment"></variable>
+
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:onClick="@{(v)->fragment.goToDetails(data)}"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="@{data.title}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:id="@+id/tv_title"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="12dp"
+            android:layout_height="wrap_content"
+            android:textColor="?android:attr/textColorPrimary"
+            app:formattedDate="@{data.time}"
+            android:id="@+id/tv_time"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider"/>
+    </LinearLayout>
+</layout>

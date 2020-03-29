@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.riyas.topstories.view.fragments.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/goToHomeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.riyas.topstories.view.fragments.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/goToDetailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+       <!--- <action
+            android:id="@+id/popUpToLauncherFragment"
+            app:popUpTo="@id/launcherFragment"
+            />-->
+        <!--<argument
+            android:name="tagUUID"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>-->
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.riyas.topstories.view.fragments.DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="story"
+            app:argType="com.riyas.topstories.model.StoryResponse"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+        <action
+            android:id="@+id/goBackToHomeFragment"
+            app:popUpTo="@id/homeFragment"
+            >
+
+        </action>
+    </fragment>
+
+</navigation>
